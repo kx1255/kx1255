@@ -1,21 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:title" content="Personal Portfolio">
+        <meta property="og:description" content="Kaci's Personal Portfolio">
+        <link rel="stylesheet" href="/static/main.css">
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+        <title>Kaci Xie</title>
+    </head>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Personal Portfolio">
-    <meta property="og:description" content="Kaci's Personal Portfolio">
-     <link rel="stylesheet" href="./static/styles/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Kaci Xie</title>
-</head>
+    <script type="text/javascript">
+        const images = ["/static/Fast-Poster.jpg"]
 
-<body>
-    <h1>
-        <br>
-        Kaci is a junior Computing and the Arts major at Yale.
-    </h1>
-</body>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+
+
+        function changepic(div) {
+            const index = parseInt(div);
+            const source=images[index];
+            document.getElementById(div).src = source;
+        }
+    </script>
+
+    <body>
+        <p> Kaci Xie is a junior Computing and the Arts major at Yale.</p>
+        <p>Here are some samples of her graphic design work.</p>
+        <section>
+            <div class="reveal fade-bottom">
+                <div onclick="changepic('0')"></div>
+                    <div class="image-and-text">
+                        <h3>YHHAP Fast Poster</h3>
+                            <img id="0" / style="border: none;">
+                        </div>
+                </div>
+            </div>
+        </section>
+    </body>
 </html>
